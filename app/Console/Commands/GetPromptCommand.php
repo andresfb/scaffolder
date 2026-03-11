@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use App\Enums\PrompterApiFormat;
@@ -11,16 +13,16 @@ use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\warning;
 
-class GetPromptCommand extends BaseUserCommand
+final class GetPromptCommand extends BaseUserCommand
 {
-    private bool $showMessages = true;
-
     protected $signature = 'get:prompt
                             {--user=}
                             {--p|prompter= : Request a specific Prompter}
                             {--f|format= : Output data in MCP (default), JSON, HTML, or Markdown (MD) format}';
 
     protected $description = 'Selects a random Prompt from the API';
+
+    private bool $showMessages = true;
 
     public function handle(PrompterService $service): int
     {
@@ -66,7 +68,7 @@ class GetPromptCommand extends BaseUserCommand
             }
 
             $content = base64_decode($response->getFileData()['base64']);
-            $path = sprintf("%s/Downloads/file.md", getenv('HOME'));
+            $path = sprintf('%s/Downloads/file.md', getenv('HOME'));
             file_put_contents($path, $content);
 
             info("File saved to $path");

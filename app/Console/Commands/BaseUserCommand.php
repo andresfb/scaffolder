@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use App\Models\User;
 use App\Traits\ResolvesActingUser;
 use App\Traits\UserLogin;
 use Illuminate\Console\Command;
+
 use function Laravel\Prompts\warning;
 
 abstract class BaseUserCommand extends Command
@@ -16,7 +19,7 @@ abstract class BaseUserCommand extends Command
     protected function loadUser(): User
     {
         $user = $this->resolveActingUser($this->option('user'));
-        if (!$user instanceof User) {
+        if (! $user instanceof User) {
             warning('No user found. Logging in...');
             $user = $this->login();
         }

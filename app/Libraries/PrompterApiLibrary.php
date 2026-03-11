@@ -24,7 +24,7 @@ final class PrompterApiLibrary
      * @throws Exception
      */
     public function get(
-        PrompterApiEndpoint  $endpoint,
+        PrompterApiEndpoint $endpoint,
         ?PrompterApiRequestItem $requestItem = null
     ): PrompterApiRandomItem {
         $query = $requestItem instanceof PrompterApiRequestItem

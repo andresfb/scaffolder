@@ -23,8 +23,7 @@ final readonly class PrompterService
     public function random(
         PrompterApiFormat $format = PrompterApiFormat::MCP,
         string $prompter = '',
-    ): PrompterApiRandomItem
-    {
+    ): PrompterApiRandomItem {
         $requestItem = new PrompterApiRequestItem($format);
 
         if (! blank($prompter)) {

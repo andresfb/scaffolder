@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Exception;
@@ -8,7 +10,7 @@ use function Laravel\Prompts\clear;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 
-class ScaffoldShortStoryCommand extends BaseUserCommand
+final class ScaffoldShortStoryCommand extends BaseUserCommand
 {
     protected $signature = 'sketch {--user=}';
 
