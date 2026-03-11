@@ -6,7 +6,8 @@ namespace App\Services;
 
 use App\Dtos\PrompterApiRandomItem;
 use App\Dtos\PrompterApiRequestItem;
-use App\Enums\PrompterApiEndpoints;
+use App\Enums\PrompterApiEndpoint;
+use App\Enums\PrompterApiFormat;
 use App\Libraries\PrompterApiLibrary;
 use Exception;
 
@@ -19,16 +20,17 @@ final readonly class PrompterService
     /**
      * @throws Exception
      */
-    public function random(string $prompter = ''): PrompterApiRandomItem
+    public function random(
+        PrompterApiFormat $format = PrompterApiFormat::MCP,
+        string $prompter = '',
+    ): PrompterApiRandomItem
     {
-        $requestItem = null;
+        $requestItem = new PrompterApiRequestItem($format);
 
         if (! blank($prompter)) {
-            $requestItem = new PrompterApiRequestItem(
-                ptr: $prompter,
-            );
+            $requestItem = $requestItem->withPrompter($prompter);
         }
 
-        return $this->library->get(PrompterApiEndpoints::RANDOM, $requestItem);
+        return $this->library->get(PrompterApiEndpoint::RANDOM, $requestItem);
     }
 }
