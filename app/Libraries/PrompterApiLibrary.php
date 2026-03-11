@@ -8,6 +8,7 @@ use App\Dtos\PrompterApiRandomItem;
 use App\Dtos\PrompterApiRequestItem;
 use App\Enums\PrompterApiEndpoint;
 use App\Models\User;
+use App\Models\UserSetting;
 use Exception;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
@@ -52,6 +53,7 @@ final class PrompterApiLibrary
         return PrompterApiRandomItem::from($response->data);
     }
 
+    /** @noinspection PhpRedundantVariableDocTypeInspection */
     private function getToken(): string
     {
         $user = User::query()
@@ -59,6 +61,7 @@ final class PrompterApiLibrary
             ->where('id', auth()->id())
             ->firstOrFail();
 
+        /** @var UserSetting $setting */
         $setting = $user->settings
             ->where(
                 'key',
