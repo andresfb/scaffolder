@@ -16,7 +16,7 @@ abstract class BaseUserCommand extends Command
     protected function loadUser(): User
     {
         $user = $this->resolveActingUser($this->option('user'));
-        if (! $user) {
+        if (!$user instanceof User) {
             warning('No user found. Logging in...');
             $user = $this->login();
         }
