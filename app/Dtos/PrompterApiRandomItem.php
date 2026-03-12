@@ -10,6 +10,7 @@ use Spatie\LaravelData\Data;
 final class PrompterApiRandomItem extends Data
 {
     public function __construct(
+        public readonly string $title,
         public readonly string $format,
         public readonly string $hash,
         public readonly string $prompt,
