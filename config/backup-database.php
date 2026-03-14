@@ -6,7 +6,7 @@ return [
 
     'ssh_host' => env('DB_BACKUP_SSH_HOST', '127.0.0.1'),
 
-    'ssh_port' => env('DB_BACKUP_SSH_PORT', 22),
+    'ssh_port' => (int) env('DB_BACKUP_SSH_PORT', 22),
 
     'ssh_user' => env('DB_BACKUP_SSH_USER'),
 

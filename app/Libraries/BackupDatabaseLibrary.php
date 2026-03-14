@@ -16,10 +16,10 @@ final class BackupDatabaseLibrary
     public function isBackupHostReachable(): bool
     {
         $host = Config::string('backup-database.ssh_host');
-        $port = Config::string('backup-database.ssh_port');
+        $port = Config::integer('backup-database.ssh_port');
         $timeout = Config::integer('backup-database.ssh_check_timeout');
 
-        $connection = @fsockopen($host, $port, $errno, $errstr, $timeout);
+        $connection = @fsockopen($host, $port, $errorCode, $errorMessage, $timeout);
 
         if ($connection) {
             fclose($connection);
@@ -27,7 +27,7 @@ final class BackupDatabaseLibrary
             return true;
         }
 
-        throw new RuntimeException("$errstr ($errno)");
+        throw new RuntimeException("$errorMessage ($errorCode)");
     }
 
     public function backupDatabase(): void
@@ -62,6 +62,12 @@ final class BackupDatabaseLibrary
 
         if (! file_exists($archivePath)) {
             throw new RuntimeException("$archivePath not created");
+        }
+
+        if (app()->isLocal()) {
+            $this->notice('Skipping remote upload in local environment');
+
+            return;
         }
 
         $destination = sprintf(
