@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Libraries;
 
 use App\Traits\Screenable;
@@ -7,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Process;
 use RuntimeException;
 
-class BackupDatabaseLibrary
+final class BackupDatabaseLibrary
 {
     use Screenable;
 
@@ -39,7 +41,7 @@ class BackupDatabaseLibrary
 
     private function isTimeForBackup(): bool
     {
-        [$archiveFile, ] = $this->getFiles();
+        [$archiveFile] = $this->getFiles();
 
         if (file_exists($archiveFile)) {
             $this->warning('Database already backed up today');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     'ssh_host' => env('DB_BACKUP_SSH_HOST', '127.0.0.1'),

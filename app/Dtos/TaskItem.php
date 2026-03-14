@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Dtos;
 
 use App\Interfaces\TaskInterface;
 use Spatie\LaravelData\Data;
 
-class TaskItem extends Data
+final class TaskItem extends Data
 {
     public function __construct(
         public string $code,

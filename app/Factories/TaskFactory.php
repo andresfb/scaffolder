@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Factories;
 
 use App\Dtos\TaskItem;
@@ -7,7 +9,7 @@ use App\Interfaces\TaskInterface;
 use Illuminate\Support\Collection;
 use RuntimeException;
 
-class TaskFactory
+final class TaskFactory
 {
     public static function getTasks(): Collection
     {

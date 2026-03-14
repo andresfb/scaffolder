@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use App\Libraries\BackupDatabaseLibrary;
@@ -12,7 +14,7 @@ use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\warning;
 
-class BackupDatabaseCommand extends Command
+final class BackupDatabaseCommand extends Command
 {
     protected $signature = 'backup:database {screen}';
 

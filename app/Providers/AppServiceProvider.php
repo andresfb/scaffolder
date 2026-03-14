@@ -17,7 +17,7 @@ final class AppServiceProvider extends ServiceProvider
     #[Override]
     public function register(): void
     {
-        $this->app->bind('tasks', fn($app): Collection => collect());
+        $this->app->bind('tasks', fn ($app): Collection => collect());
         /** @param Collection<TaskItem> $tasks */
         $this->app->resolving('tasks', function (Collection $tasks): void {
             $tasks->push(
