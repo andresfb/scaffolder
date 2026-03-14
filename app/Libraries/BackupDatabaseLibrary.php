@@ -27,7 +27,7 @@ final class BackupDatabaseLibrary
             return true;
         }
 
-        throw new RuntimeException("$errorMessage ($errorCode)");
+        throw new RuntimeException("{$errorMessage} ({$errorCode})");
     }
 
     public function backupDatabase(): void
@@ -56,12 +56,12 @@ final class BackupDatabaseLibrary
     {
         [$archivePath, $dbFile] = $this->getFiles();
 
-        $this->notice("Archiving $dbFile to $archivePath");
+        $this->notice("Archiving {$dbFile} to {$archivePath}");
         Process::run(['tar', '-czf', $archivePath, $dbFile])
             ->throw();
 
         if (! file_exists($archivePath)) {
-            throw new RuntimeException("$archivePath not created");
+            throw new RuntimeException("{$archivePath} not created");
         }
 
         if (app()->isLocal()) {
@@ -77,7 +77,7 @@ final class BackupDatabaseLibrary
             Config::string('backup-database.ssh_backup_path')
         );
 
-        $this->notice("Uploading $archivePath to $destination");
+        $this->notice("Uploading {$archivePath} to {$destination}");
         Process::run(['rsync', '-auzq', $archivePath, $destination])
             ->throw();
     }
@@ -90,7 +90,7 @@ final class BackupDatabaseLibrary
             pathinfo($dbFile, PATHINFO_BASENAME),
             now()->format('Y-m-d')
         );
-        $archivePath = storage_path("app/private/$archiveFile");
+        $archivePath = storage_path("app/private/{$archiveFile}");
 
         return [$archivePath, $dbFile];
     }

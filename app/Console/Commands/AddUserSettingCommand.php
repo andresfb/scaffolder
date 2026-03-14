@@ -52,12 +52,13 @@ final class AddUserSettingCommand extends Command
 
             $this->line('Saving User Setting');
 
-            UserSetting::updateOrCreate([
-                'user_id' => $user->id,
-                'key' => $results['key'],
-            ], [
-                'value' => $results['value'],
-            ]);
+            UserSetting::query()
+                ->updateOrCreate([
+                    'user_id' => $user->id,
+                    'key' => $results['key'],
+                ], [
+                    'value' => $results['value'],
+                ]);
         } catch (Exception $e) {
             error($e->getMessage());
         } finally {

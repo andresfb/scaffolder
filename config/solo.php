@@ -5,12 +5,15 @@ declare(strict_types=1);
 use SoloTerm\Solo\Commands\Command;
 use SoloTerm\Solo\Commands\EnhancedTailCommand;
 use SoloTerm\Solo\Commands\MakeCommand;
-use SoloTerm\Solo\Hotkeys;
-use SoloTerm\Solo\Themes;
+use SoloTerm\Solo\Hotkeys\DefaultHotkeys;
+use SoloTerm\Solo\Hotkeys\VimHotkeys;
+use SoloTerm\Solo\Manager;
+use SoloTerm\Solo\Themes\DarkTheme;
+use SoloTerm\Solo\Themes\LightTheme;
 
 // Solo may not (should not!) exist in prod, so we have to
 // check here first to see if it's installed.
-if (! class_exists('\SoloTerm\Solo\Manager')) {
+if (! class_exists(Manager::class)) {
     return [
         //
     ];
@@ -25,8 +28,8 @@ return [
     'theme' => env('SOLO_THEME', 'dark'),
 
     'themes' => [
-        'light' => Themes\LightTheme::class,
-        'dark' => Themes\DarkTheme::class,
+        'light' => LightTheme::class,
+        'dark' => DarkTheme::class,
     ],
 
     /*
@@ -37,8 +40,8 @@ return [
     'keybinding' => env('SOLO_KEYBINDING', 'default'),
 
     'keybindings' => [
-        'default' => Hotkeys\DefaultHotkeys::class,
-        'vim' => Hotkeys\VimHotkeys::class,
+        'default' => DefaultHotkeys::class,
+        'vim' => VimHotkeys::class,
     ],
 
     /*

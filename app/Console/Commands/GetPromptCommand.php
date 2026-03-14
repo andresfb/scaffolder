@@ -71,7 +71,7 @@ final class GetPromptCommand extends BaseUserCommand
             $path = sprintf('%s/Downloads/file.md', getenv('HOME'));
             file_put_contents($path, $content);
 
-            info("File saved to $path");
+            info("File saved to {$path}");
 
             return self::SUCCESS;
         } catch (Exception $e) {

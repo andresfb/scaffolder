@@ -25,10 +25,11 @@ final readonly class CreateNewUserAction
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        return User::query()
+            ->create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]);
     }
 }

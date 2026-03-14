@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\CarbonInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Override;
@@ -18,6 +19,8 @@ use Override;
  */
 final class UserSetting extends Model
 {
+    use HasFactory;
+
     protected $guarded = ['id'];
 
     public function user(): BelongsTo

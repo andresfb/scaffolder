@@ -56,7 +56,7 @@ final class CreateUserCommand extends Command
                 )
                 ->submit();
 
-            if (User::where('email', $results['email'])->exists()) {
+            if (User::query()->where('email', $results['email'])->exists()) {
                 throw new RuntimeException('User with that email exists');
             }
 

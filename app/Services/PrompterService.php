@@ -26,7 +26,7 @@ final readonly class PrompterService
     ): PrompterApiRandomItem {
         $requestItem = new PrompterApiRequestItem($format);
 
-        if (! blank($prompter)) {
+        if (filled($prompter)) {
             $requestItem = $requestItem->withPrompter($prompter);
         }
 

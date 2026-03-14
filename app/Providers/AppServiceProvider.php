@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Dtos\TaskItem;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Override;
 
@@ -42,6 +44,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Model::shouldBeStrict(app()->isLocal());
+        DB::prohibitDestructiveCommands(app()->isProduction());
     }
 }

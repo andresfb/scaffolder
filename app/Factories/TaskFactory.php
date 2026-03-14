@@ -13,7 +13,7 @@ final class TaskFactory
 {
     public static function getTasks(): Collection
     {
-        $tasks = app('tasks');
+        $tasks = resolve('tasks');
         if (! $tasks instanceof Collection) {
             throw new RuntimeException('No tasks found');
         }
@@ -34,9 +34,9 @@ final class TaskFactory
             throw new RuntimeException('Task not found');
         }
 
-        $task = app($taskClass->task);
+        $task = resolve($taskClass->task);
         if (! $task instanceof TaskInterface) {
-            throw new RuntimeException("$taskCode is not a valid task");
+            throw new RuntimeException("{$taskCode} is not a valid task");
         }
 
         return $task;
