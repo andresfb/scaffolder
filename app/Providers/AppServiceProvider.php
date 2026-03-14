@@ -26,14 +26,14 @@ final class AppServiceProvider extends ServiceProvider
                 new TaskItem(
                     code: 'prompt',
                     description: 'Scaffold a Random Sketch',
-                    task: null,
+                    taskClass: '',
                 )
             );
             $tasks->push(
                 new TaskItem(
                     code: 'chat',
                     description: 'Chat with an AI',
-                    task: null,
+                    taskClass: '',
                 )
             );
         });

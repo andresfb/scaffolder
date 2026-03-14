@@ -12,6 +12,6 @@ final class TaskItem extends Data
     public function __construct(
         public string $code,
         public string $description,
-        public ?TaskInterface $task,
+        public string $taskClass,
     ) {}
 }

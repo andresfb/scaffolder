@@ -34,7 +34,7 @@ final class TaskFactory
             throw new RuntimeException('Task not found');
         }
 
-        $task = resolve($taskClass->task);
+        $task = resolve($taskClass->taskClass);
         if (! $task instanceof TaskInterface) {
             throw new RuntimeException("{$taskCode} is not a valid task");
         }
