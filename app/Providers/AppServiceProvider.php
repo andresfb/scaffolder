@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Dtos\TaskItem;
+use App\Tasks\BuildSketchTask;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,8 @@ final class AppServiceProvider extends ServiceProvider
             $tasks->push(
                 new TaskItem(
                     code: 'prompt',
-                    description: 'Scaffold a Random Sketch',
-                    taskClass: '',
+                    description: 'Build a Random Sketch',
+                    taskClass: BuildSketchTask::class,
                 )
             );
             $tasks->push(

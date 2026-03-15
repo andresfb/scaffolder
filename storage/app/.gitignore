@@ -1,4 +1,6 @@
 *
+!outlines/
+!outlines/*.md
 !private/
 !public/
 !.gitignore
