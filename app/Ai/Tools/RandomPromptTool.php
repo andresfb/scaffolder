@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Ai\Tools;
 
-use App\Services\OutlineTemplateService;
+use App\Models\OutlineTemplate;
 use App\Services\PrompterService;
 use Exception;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
@@ -17,7 +17,6 @@ final readonly class RandomPromptTool implements Tool
 {
     public function __construct(
         private PrompterService $prompterService,
-        private OutlineTemplateService $outlineService
     ) {}
 
     /**
@@ -55,7 +54,7 @@ final readonly class RandomPromptTool implements Tool
 
         $prompt = $prompt->parsePrompt()
             ->withTemplate(
-                $this->outlineService->execute(),
+                OutlineTemplate::getRandom()
             );
 
         Cache::put($prompt->hash, $prompt, now()->addDay());

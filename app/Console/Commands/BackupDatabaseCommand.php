@@ -16,7 +16,7 @@ use function Laravel\Prompts\warning;
 
 final class BackupDatabaseCommand extends Command
 {
-    protected $signature = 'backup:database {screen}';
+    protected $signature = 'backup:database {--s|screen} {--f|force}';
 
     protected $description = 'Backups the SQLite database file to an SSH host';
 
@@ -27,8 +27,11 @@ final class BackupDatabaseCommand extends Command
 
     public function handle(): int
     {
-        $toScreen = (bool) $this->argument('screen');
-        $this->backupLibrary->setToScreen($toScreen);
+        $forceBackup = (bool) $this->option('force');
+        $toScreen = (bool) $this->option('screen');
+
+        $this->backupLibrary->setForceBackup($forceBackup)
+            ->setToScreen($toScreen);
 
         try {
             if ($toScreen) {

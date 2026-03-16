@@ -81,6 +81,11 @@ final class User extends Authenticatable
         return $this->hasMany(UserSetting::class);
     }
 
+    public function templates(): HasMany
+    {
+        return $this->hasMany(OutlineTemplate::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *

@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use App\Models\UserSetting;
-use App\Traits\ResolvesActingUser;
-use App\Traits\UserLogin;
 use Exception;
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 
 use function Laravel\Prompts\clear;
@@ -17,22 +14,19 @@ use function Laravel\Prompts\form;
 use function Laravel\Prompts\intro;
 use function Laravel\Prompts\outro;
 
-final class AddUserSettingCommand extends Command
+final class AddUserSettingCommand extends BaseUserCommand
 {
-    use ResolvesActingUser;
-    use UserLogin;
-
-    protected $signature = 'add:setting';
+    protected $signature = 'add:setting {--user=}';
 
     protected $description = 'Add a User Setting';
 
-    public function handle(): void
+    public function handle(): int
     {
         try {
             clear();
             intro('Add User Setting');
 
-            $user = $this->login();
+            $user = $this->loadUser();
 
             $results = form()
                 ->text(
@@ -59,8 +53,12 @@ final class AddUserSettingCommand extends Command
                 ], [
                     'value' => $results['value'],
                 ]);
+
+            return self::SUCCESS;
         } catch (Exception $e) {
             error($e->getMessage());
+
+            return self::FAILURE;
         } finally {
             $this->newLine();
             outro('Done');

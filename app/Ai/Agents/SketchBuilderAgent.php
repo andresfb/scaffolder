@@ -12,7 +12,6 @@ use Laravel\Ai\Contracts\HasStructuredOutput;
 use Laravel\Ai\Contracts\HasTools;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Promptable;
-use Stringable;
 
 final class SketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
 {
@@ -21,7 +20,7 @@ final class SketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
     /**
      * Get the instructions that the agent should follow.
      */
-    public function instructions(): Stringable|string
+    public function instructions(): string
     {
         return Config::string('sketches.agent_instruction');
     }

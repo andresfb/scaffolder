@@ -49,14 +49,6 @@ return [
             'report' => false,
         ],
 
-        'outlines' => [
-            'driver' => 'local',
-            'root' => storage_path('app/outlines'),
-            'serve' => true,
-            'throw' => false,
-            'report' => false,
-        ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

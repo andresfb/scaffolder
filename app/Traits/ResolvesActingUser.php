@@ -19,6 +19,7 @@ trait ResolvesActingUser
 
         $user = User::query()
             ->with('settings')
+            ->with('templates')
             ->where('id', (int) $userId)
             ->first();
 

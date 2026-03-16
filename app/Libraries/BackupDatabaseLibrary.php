@@ -13,6 +13,15 @@ final class BackupDatabaseLibrary
 {
     use Screenable;
 
+    private bool $forceBackup = false;
+
+    public function setForceBackup(bool $forceBackup): self
+    {
+        $this->forceBackup = $forceBackup;
+
+        return $this;
+    }
+
     public function isBackupHostReachable(): bool
     {
         $host = Config::string('backup-database.ssh_host');
@@ -41,6 +50,10 @@ final class BackupDatabaseLibrary
 
     private function isTimeForBackup(): bool
     {
+        if ($this->forceBackup) {
+            return true;
+        }
+
         [$archiveFile] = $this->getFiles();
 
         if (file_exists($archiveFile)) {
@@ -64,7 +77,7 @@ final class BackupDatabaseLibrary
             throw new RuntimeException("{$archivePath} not created");
         }
 
-        if (app()->isLocal()) {
+        if (! $this->forceBackup && app()->isLocal()) {
             $this->notice('Skipping remote upload in local environment');
 
             return;

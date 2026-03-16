@@ -14,7 +14,6 @@ trait DatabaseBackuper
             PHP_BINARY,
             'artisan',
             'backup:database',
-            0,
         ]);
     }
 }
