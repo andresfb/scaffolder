@@ -1,13 +1,18 @@
 {
     "agents": [
-        "claude_code"
+        "claude_code",
+        "opencode"
     ],
     "guidelines": true,
     "herd_mcp": false,
     "mcp": true,
     "nightwatch_mcp": false,
+    "packages": [
+        "laravel/ai"
+    ],
     "sail": false,
     "skills": [
-        "pest-testing"
+        "pest-testing",
+        "ai-sdk-development"
     ]
 }
