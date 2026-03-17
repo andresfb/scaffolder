@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba667f700909d178849bd0524daebcd0",
+    "content-hash": "5eeac84ba6d69a1b6ddd42a227339470",
     "packages": [
         {
             "name": "brick/math",
@@ -1954,20 +1954,20 @@
         },
         {
             "name": "league/uri",
-            "version": "7.8.0",
+            "version": "7.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri.git",
-                "reference": "4436c6ec8d458e4244448b069cc572d088230b76"
+                "reference": "08cf38e3924d4f56238125547b5720496fac8fd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/4436c6ec8d458e4244448b069cc572d088230b76",
-                "reference": "4436c6ec8d458e4244448b069cc572d088230b76",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/08cf38e3924d4f56238125547b5720496fac8fd4",
+                "reference": "08cf38e3924d4f56238125547b5720496fac8fd4",
                 "shasum": ""
             },
             "require": {
-                "league/uri-interfaces": "^7.8",
+                "league/uri-interfaces": "^7.8.1",
                 "php": "^8.1",
                 "psr/http-factory": "^1"
             },
@@ -2040,7 +2040,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri/tree/7.8.0"
+                "source": "https://github.com/thephpleague/uri/tree/7.8.1"
             },
             "funding": [
                 {
@@ -2048,20 +2048,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-14T17:24:56+00:00"
+            "time": "2026-03-15T20:22:25+00:00"
         },
         {
             "name": "league/uri-interfaces",
-            "version": "7.8.0",
+            "version": "7.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-interfaces.git",
-                "reference": "c5c5cd056110fc8afaba29fa6b72a43ced42acd4"
+                "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/c5c5cd056110fc8afaba29fa6b72a43ced42acd4",
-                "reference": "c5c5cd056110fc8afaba29fa6b72a43ced42acd4",
+                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/85d5c77c5d6d3af6c54db4a78246364908f3c928",
+                "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928",
                 "shasum": ""
             },
             "require": {
@@ -2124,7 +2124,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.8.0"
+                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.8.1"
             },
             "funding": [
                 {
@@ -2132,7 +2132,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-15T06:54:53+00:00"
+            "time": "2026-03-08T20:05:35+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2239,16 +2239,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.11.1",
+            "version": "3.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "f438fcc98f92babee98381d399c65336f3a3827f"
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/f438fcc98f92babee98381d399c65336f3a3827f",
-                "reference": "f438fcc98f92babee98381d399c65336f3a3827f",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/6a7e652845bb018c668220c2a545aded8594fbbf",
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf",
                 "shasum": ""
             },
             "require": {
@@ -2340,7 +2340,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-29T09:26:29+00:00"
+            "time": "2026-03-11T17:23:39+00:00"
         },
         {
             "name": "nette/schema",
@@ -3094,16 +3094,16 @@
         },
         {
             "name": "prism-php/prism",
-            "version": "v0.99.21",
+            "version": "v0.99.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/prism-php/prism.git",
-                "reference": "95272567629a62831294f63b1b927b1e2e608daf"
+                "reference": "989f67567aef69c613eae6e932d615fb96e2f5d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prism-php/prism/zipball/95272567629a62831294f63b1b927b1e2e608daf",
-                "reference": "95272567629a62831294f63b1b927b1e2e608daf",
+                "url": "https://api.github.com/repos/prism-php/prism/zipball/989f67567aef69c613eae6e932d615fb96e2f5d7",
+                "reference": "989f67567aef69c613eae6e932d615fb96e2f5d7",
                 "shasum": ""
             },
             "require": {
@@ -3161,7 +3161,7 @@
             "description": "A powerful Laravel package for integrating Large Language Models (LLMs) into your applications.",
             "support": {
                 "issues": "https://github.com/prism-php/prism/issues",
-                "source": "https://github.com/prism-php/prism/tree/v0.99.21"
+                "source": "https://github.com/prism-php/prism/tree/v0.99.22"
             },
             "funding": [
                 {
@@ -3169,7 +3169,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-01T21:12:44+00:00"
+            "time": "2026-03-12T17:55:23+00:00"
         },
         {
             "name": "psr/clock",
@@ -7461,16 +7461,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v2.2.3",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "44ab65a5455c2d6fceb71d6145f8d5d89c02d889"
+                "reference": "ba0a9e6497398b6ce8243f5517b67d6761509150"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/44ab65a5455c2d6fceb71d6145f8d5d89c02d889",
-                "reference": "44ab65a5455c2d6fceb71d6145f8d5d89c02d889",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/ba0a9e6497398b6ce8243f5517b67d6761509150",
+                "reference": "ba0a9e6497398b6ce8243f5517b67d6761509150",
                 "shasum": ""
             },
             "require": {
@@ -7523,7 +7523,7 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2026-03-06T20:20:28+00:00"
+            "time": "2026-03-12T09:06:47+00:00"
         },
         {
             "name": "laravel/mcp",
@@ -7680,16 +7680,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.28.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9"
+                "reference": "bdec963f53172c5e36330f3a400604c69bf02d39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9",
-                "reference": "1feae84bf9c1649d99ba8f7b8193bf0f09f04cc9",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/bdec963f53172c5e36330f3a400604c69bf02d39",
+                "reference": "bdec963f53172c5e36330f3a400604c69bf02d39",
                 "shasum": ""
             },
             "require": {
@@ -7706,8 +7706,8 @@
                 "laravel-zero/framework": "^12.0.5",
                 "mockery/mockery": "^1.6.12",
                 "nunomaduro/termwind": "^2.4.0",
-                "pestphp/pest": "^3.8.5",
-                "shipfastlabs/agent-detector": "^1.0.2"
+                "pestphp/pest": "^3.8.6",
+                "shipfastlabs/agent-detector": "^1.1.0"
             },
             "bin": [
                 "builds/pint"
@@ -7744,7 +7744,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2026-03-10T20:37:18+00:00"
+            "time": "2026-03-12T15:51:39+00:00"
         },
         {
             "name": "laravel/roster",
@@ -8691,11 +8691,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.40",
+            "version": "2.1.41",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
-                "reference": "9b2c7aeb83a75d8680ea5e7c9b7fca88052b766b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a2eae8f20856b3afe74bf1f9726ce8c11438e300",
+                "reference": "a2eae8f20856b3afe74bf1f9726ce8c11438e300",
                 "shasum": ""
             },
             "require": {
@@ -8740,7 +8740,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-23T15:04:35+00:00"
+            "time": "2026-03-16T18:24:10+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -9196,21 +9196,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.3.8",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "bbd37aedd8df749916cffa2a947cfc4714d1ba2c"
+                "reference": "917842143fd9f5331a2adefc214b8d7143bd32c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/bbd37aedd8df749916cffa2a947cfc4714d1ba2c",
-                "reference": "bbd37aedd8df749916cffa2a947cfc4714d1ba2c",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/917842143fd9f5331a2adefc214b8d7143bd32c4",
+                "reference": "917842143fd9f5331a2adefc214b8d7143bd32c4",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.38"
+                "phpstan/phpstan": "^2.1.40"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -9244,7 +9244,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.3.8"
+                "source": "https://github.com/rectorphp/rector/tree/2.3.9"
             },
             "funding": [
                 {
@@ -9252,7 +9252,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-22T09:45:50+00:00"
+            "time": "2026-03-16T09:43:55+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -9542,16 +9542,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "8.0.3",
+            "version": "8.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68"
+                "reference": "7b8842c2d8e85d0c3a5831236bf5869af6ab2a11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
-                "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/7b8842c2d8e85d0c3a5831236bf5869af6ab2a11",
+                "reference": "7b8842c2d8e85d0c3a5831236bf5869af6ab2a11",
                 "shasum": ""
             },
             "require": {
@@ -9594,7 +9594,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/8.0.3"
+                "source": "https://github.com/sebastianbergmann/environment/tree/8.0.4"
             },
             "funding": [
                 {
@@ -9614,7 +9614,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-12T14:11:56+00:00"
+            "time": "2026-03-15T07:05:40+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -10153,27 +10153,27 @@
         },
         {
             "name": "soloterm/dumps",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/soloterm/dumps.git",
-                "reference": "a1946b0a9b8038a1d4ef4da5a4f0d25604f68d1b"
+                "reference": "829ad564381d8eca34b381c0032656bd7e2a60c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soloterm/dumps/zipball/a1946b0a9b8038a1d4ef4da5a4f0d25604f68d1b",
-                "reference": "a1946b0a9b8038a1d4ef4da5a4f0d25604f68d1b",
+                "url": "https://api.github.com/repos/soloterm/dumps/zipball/829ad564381d8eca34b381c0032656bd7e2a60c6",
+                "reference": "829ad564381d8eca34b381c0032656bd7e2a60c6",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^10|^11|^12",
-                "illuminate/support": "^10|^11|^12",
+                "illuminate/console": "^10|^11|^12|^13.0",
+                "illuminate/support": "^10|^11|^12|^13.0",
                 "php": "^8.1"
             },
             "require-dev": {
-                "illuminate/process": "^10|^11|^12",
-                "orchestra/testbench": "^8.29|^9.5|^10",
-                "phpunit/phpunit": "^10.5|^11"
+                "illuminate/process": "^10|^11|^12|^13.0",
+                "orchestra/testbench": "^8.29|^9.5|^10|^11.0",
+                "phpunit/phpunit": "^10.5|^11|^12.5"
             },
             "type": "library",
             "extra": {
@@ -10201,37 +10201,29 @@
             "description": "A Laravel command to intercept dumps from your Laravel application.",
             "support": {
                 "issues": "https://github.com/soloterm/dumps/issues",
-                "source": "https://github.com/soloterm/dumps/tree/v1.0.1"
+                "source": "https://github.com/soloterm/dumps/tree/v1.1.0"
             },
-            "funding": [
-                {
-                    "url": "https://aaronfrancis.com/backstage",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/aarondfrancis",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-03-20T17:41:33+00:00"
+            "time": "2026-03-16T16:57:57+00:00"
         },
         {
             "name": "soloterm/grapheme",
-            "version": "v1.0.2",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/soloterm/grapheme.git",
-                "reference": "502334c51a208750e8fc418228c8956e585ba34b"
+                "reference": "355a0b90a19b394705fff875417a12c662985b10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soloterm/grapheme/zipball/502334c51a208750e8fc418228c8956e585ba34b",
-                "reference": "502334c51a208750e8fc418228c8956e585ba34b",
+                "url": "https://api.github.com/repos/soloterm/grapheme/zipball/355a0b90a19b394705fff875417a12c662985b10",
+                "reference": "355a0b90a19b394705fff875417a12c662985b10",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "symfony/polyfill-intl-normalizer": "^1.27.0"
+                "symfony/polyfill-intl-grapheme": "^1.27.0",
+                "symfony/polyfill-intl-normalizer": "^1.27.0",
+                "symfony/polyfill-mbstring": "^1.27.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^10.5|^11"
@@ -10258,38 +10250,28 @@
             "description": "A PHP package to measure the width of unicode strings rendered to a terminal.",
             "support": {
                 "issues": "https://github.com/soloterm/grapheme/issues",
-                "source": "https://github.com/soloterm/grapheme/tree/v1.0.2"
+                "source": "https://github.com/soloterm/grapheme/tree/v1.1.1"
             },
-            "funding": [
-                {
-                    "url": "https://aaronfrancis.com/backstage",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/aarondfrancis",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-03-24T16:35:42+00:00"
+            "time": "2026-03-16T01:01:20+00:00"
         },
         {
             "name": "soloterm/screen",
-            "version": "v1.1.1",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/soloterm/screen.git",
-                "reference": "e397161d68f9cfe627879734c4c5a89c110e7e31"
+                "reference": "7a2d097ac7c69bda3c0c92e9d61b51f9b64e2cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soloterm/screen/zipball/e397161d68f9cfe627879734c4c5a89c110e7e31",
-                "reference": "e397161d68f9cfe627879734c4c5a89c110e7e31",
+                "url": "https://api.github.com/repos/soloterm/screen/zipball/7a2d097ac7c69bda3c0c92e9d61b51f9b64e2cff",
+                "reference": "7a2d097ac7c69bda3c0c92e9d61b51f9b64e2cff",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": "^8.1",
-                "soloterm/grapheme": "^v1.0.1"
+                "soloterm/grapheme": "^v1.1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^10.5|^11",
@@ -10314,19 +10296,9 @@
             "description": "A terminal renderer written in pure PHP.",
             "support": {
                 "issues": "https://github.com/soloterm/screen/issues",
-                "source": "https://github.com/soloterm/screen/tree/v1.1.1"
+                "source": "https://github.com/soloterm/screen/tree/v1.1.4"
             },
-            "funding": [
-                {
-                    "url": "https://aaronfrancis.com/backstage",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/aarondfrancis",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-14T20:22:58+00:00"
+            "time": "2026-03-16T21:58:36+00:00"
         },
         {
             "name": "soloterm/solo",
@@ -10644,7 +10616,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.3"
+        "php": "^8.3",
+        "ext-zlib": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"

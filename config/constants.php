@@ -25,10 +25,10 @@ return [
             'name' => 'openrouter',
             'models' => explode(',', env('OPENROUTER_MODELS')),
         ],
-        //        [
-        //            'name' => 'ollama',
-        //            'models' => explode(',', env('OLLAMA_MODELS')),
-        //        ],
+//        [
+//            'name' => 'ollama',
+//            'models' => explode(',', env('OLLAMA_MODELS')),
+//        ],
     ],
 
 ];
