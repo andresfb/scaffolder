@@ -83,11 +83,17 @@ final class BackupDatabaseLibrary
             return;
         }
 
+        $hostname = str(gethostname())->kebab()->toString();
+        $fileName = pathinfo($archivePath, PATHINFO_FILENAME);
+        $extension = pathinfo($archivePath, PATHINFO_EXTENSION);
+        $destinationFile = "{$fileName}-{$hostname}.{$extension}";
+
         $destination = sprintf(
-            '%s@%s:%s',
+            '%s@%s:%s/%s',
             Config::string('backup-database.ssh_user'),
             Config::string('backup-database.ssh_host'),
-            Config::string('backup-database.ssh_backup_path')
+            Config::string('backup-database.ssh_backup_path'),
+            $destinationFile,
         );
 
         $this->notice("Uploading {$archivePath} to {$destination}");
@@ -99,7 +105,7 @@ final class BackupDatabaseLibrary
     {
         $dbFile = Config::string('database.connections.sqlite.database');
         $archiveFile = sprintf(
-            '%s-%s.tar.gz',
+            '%s-%s.tgz',
             pathinfo($dbFile, PATHINFO_BASENAME),
             now()->format('Y-m-d')
         );
