@@ -78,7 +78,7 @@ final class BuildSketchTask implements TaskInterface
             ->toString();
 
         $destination = sprintf(
-            Config::string('sketches.destination'),
+            getenv('SCAFFOLDER_SKETCHES_DESTINATION') ?: Config::string('sketches.destination'),
             $titlePath,
         );
 
