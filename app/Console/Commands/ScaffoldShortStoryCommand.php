@@ -23,6 +23,7 @@ final class ScaffoldShortStoryCommand extends BaseUserCommand
     {
         try {
             clear();
+            $this->newLine(4);
             info('Scaffolding Sketch...');
 
             $this->loadUser();
@@ -36,7 +37,7 @@ final class ScaffoldShortStoryCommand extends BaseUserCommand
             $task = TaskFactory::getTask($option);
             $task->setToScreen(true);
 
-            $this->newLine();
+            $this->newLine(2);
             spin(
                 callback: fn () => $task->handle(),
                 message: 'Calling the Agent...'

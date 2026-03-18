@@ -8,6 +8,9 @@ use App\Models\OutlineTemplate;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<OutlineTemplate>
+ */
 final class OutlineTemplateFactory extends Factory
 {
     protected $model = OutlineTemplate::class;
