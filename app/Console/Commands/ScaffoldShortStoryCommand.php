@@ -23,7 +23,7 @@ final class ScaffoldShortStoryCommand extends BaseUserCommand
     {
         try {
             clear();
-            $this->newLine(4);
+            $this->newLine(2);
             info('Scaffolding Sketch...');
 
             $this->loadUser();

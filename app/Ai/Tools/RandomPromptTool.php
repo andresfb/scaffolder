@@ -42,6 +42,7 @@ final class RandomPromptTool implements Tool
         $maxRunts = 5;
         $runCount = 0;
         $prompt = null;
+        Cache::forget(md5('last-prompt'));
 
         while ($runCount < $maxRunts) {
             $runCount++;
@@ -68,7 +69,18 @@ final class RandomPromptTool implements Tool
             );
 
         $this->notice('Prompt is ready for the AI');
-        Cache::put($prompt->hash, $prompt, now()->addDay());
+
+        Cache::put(
+            md5('last-prompt'),
+            $prompt->hash,
+            now()->addDay()->addMinute()
+        );
+
+        $saved = Cache::put($prompt->hash, $prompt->getFileData(), now()->addDay());
+        if (! $saved) {
+            $this->warning('Could not save prompt file to cache');
+            Cache::forget(md5('last-prompt'));
+        }
 
         return $prompt->clearFile()->toJson();
     }

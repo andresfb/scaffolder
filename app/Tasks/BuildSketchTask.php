@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tasks;
 
 use App\Ai\Agents\SketchBuilderAgent;
-use App\Dtos\PrompterApiRandomItem;
 use App\Factories\ProviderFactory;
 use App\Interfaces\TaskInterface;
 use App\Traits\AiNotifiable;
@@ -28,6 +27,8 @@ final class BuildSketchTask implements TaskInterface
     private Lab $provider = Lab::OpenAI;
 
     private AgentResponse $response;
+
+    private array $folders = [];
 
     public function handle(): void
     {
@@ -65,11 +66,24 @@ final class BuildSketchTask implements TaskInterface
         $this->line();
         $this->info("The agent used {$this->provider->name} with model: {$this->model} to scaffold the story.");
         $this->info("It titled it: {$this->response['title']}");
+        $this->info('Files located at:');
+
         $this->line();
-        $this->warning('It used the following number of tokens:');
+        foreach ($this->folders as $key => $folder) {
+            $this->notice("{$key} - {$folder}");
+        }
+
+        $this->line(2);
+        $this->warning('Tokens used:');
         $this->notice("{$this->response->usage->promptTokens} prompt tokens");
         $this->notice("{$this->response->usage->completionTokens} completion tokens");
         $this->notice("{$this->response->usage->reasoningTokens} reasoning tokens");
+        $this->warning(sprintf(
+            'Total: %s',
+            $this->response->usage->promptTokens
+                + $this->response->usage->completionTokens
+                + $this->response->usage->reasoningTokens
+        ));
         $this->line();
     }
 
@@ -84,19 +98,19 @@ final class BuildSketchTask implements TaskInterface
             $titlePath,
         );
 
-        $folders = [
+        $this->folders = [
             'outline' => "{$destination}/Outline",
             'prompt' => "{$destination}/Prompt",
             'draft' => "{$destination}/Drafts",
         ];
 
-        foreach ($folders as $folder) {
+        foreach ($this->folders as $folder) {
             File::ensureDirectoryExists($folder);
         }
 
-        $this->saveOutline($folders['outline']);
-        $this->savePrompt($folders['prompt']);
-        $this->saveDraft($folders['draft']);
+        $this->saveOutline($this->folders['outline']);
+        $this->saveDraft($this->folders['draft']);
+        $this->savePrompt($this->folders['prompt']);
     }
 
     private function saveOutline(string $outlinePath): void
@@ -106,18 +120,14 @@ final class BuildSketchTask implements TaskInterface
 
     private function savePrompt(string $promptPath): void
     {
-        $prompt = Cache::get($this->response['hash']);
-        if (! $prompt instanceof PrompterApiRandomItem) {
-            $this->error('The agent did not return the Prompt hash');
-
-            return;
-        }
-
         try {
-            $file = $prompt->getFileData();
+            $file = $this->getCachedFileData();
+            if (blank($file['base64'])) {
+                throw new RuntimeException('Prompt has no base64 data');
+            }
+
             $data = base64_decode($file['base64']);
         } catch (Exception $e) {
-            $this->error('The agent did not return the proper file data');
             $this->error($e->getMessage());
 
             return;
@@ -125,6 +135,7 @@ final class BuildSketchTask implements TaskInterface
 
         File::put("{$promptPath}/prompt.md", $data);
         Cache::forget($this->response['hash']);
+        Cache::forget(md5('last-prompt'));
     }
 
     private function saveDraft(string $draftPath): void
@@ -136,5 +147,25 @@ final class BuildSketchTask implements TaskInterface
         }
 
         File::put("{$draftPath}/draft.md", $this->response['draft']);
+    }
+
+    private function getCachedFileData(): array
+    {
+        $prompt = Cache::get($this->response['hash']);
+        if (filled($prompt)) {
+            return $prompt;
+        }
+
+        $hash = Cache::get(md5('last-prompt'));
+        if (blank($hash)) {
+            throw new RuntimeException('The Prompt file data is missing from the cache');
+        }
+
+        $prompt = Cache::get($hash);
+        if (filled($prompt)) {
+            return $prompt;
+        }
+
+        throw new RuntimeException('The Prompt file data is missing from the cache');
     }
 }
