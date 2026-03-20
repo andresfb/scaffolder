@@ -6,6 +6,7 @@ namespace App\Ai\Tools;
 
 use App\Models\OutlineTemplate;
 use App\Services\PrompterService;
+use App\Traits\Screenable;
 use Exception;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
 use Illuminate\Support\Facades\Cache;
@@ -13,11 +14,15 @@ use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use RuntimeException;
 
-final readonly class RandomPromptTool implements Tool
+final class RandomPromptTool implements Tool
 {
+    use Screenable;
+
     public function __construct(
-        private PrompterService $prompterService,
-    ) {}
+        private readonly PrompterService $prompterService,
+    ) {
+        $this->toScreen = true;
+    }
 
     /**
      * Get the description of the tool's purpose.
@@ -40,8 +45,13 @@ final readonly class RandomPromptTool implements Tool
 
         while ($runCount < $maxRunts) {
             $runCount++;
+
+            $this->notice('Calling the Random Prompt API...');
+
             $prompt = $this->prompterService->random();
             if (Cache::has($prompt->hash)) {
+                $this->warning("We already used this Prompt: {$prompt->title} today");
+
                 continue;
             }
 
@@ -57,6 +67,7 @@ final readonly class RandomPromptTool implements Tool
                 OutlineTemplate::getRandom()
             );
 
+        $this->notice('Prompt is ready for the AI');
         Cache::put($prompt->hash, $prompt, now()->addDay());
 
         return $prompt->clearFile()->toJson();

@@ -32,9 +32,7 @@ trait Screenable
             return;
         }
 
-        for ($i = 0; $i < $count; $i++) {
-            echo PHP_EOL;
-        }
+        echo str_repeat("\n", $count);
     }
 
     public function notice(string $message): void

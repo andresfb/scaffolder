@@ -11,7 +11,7 @@ use function Laravel\Prompts\clear;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\select;
-use function Laravel\Prompts\spin;
+use function Laravel\Prompts\warning;
 
 final class ScaffoldShortStoryCommand extends BaseUserCommand
 {
@@ -37,11 +37,10 @@ final class ScaffoldShortStoryCommand extends BaseUserCommand
             $task = TaskFactory::getTask($option);
             $task->setToScreen(true);
 
-            $this->newLine(2);
-            spin(
-                callback: fn () => $task->handle(),
-                message: 'Calling the Agent...'
-            );
+            $this->newLine();
+
+            warning('Calling the Agent...');
+            $task->handle();
 
             $task->complete();
 

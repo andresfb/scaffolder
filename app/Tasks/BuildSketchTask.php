@@ -35,6 +35,8 @@ final class BuildSketchTask implements TaskInterface
         $this->provider = $providerItem->lab;
         $this->model = $providerItem->model;
 
+        $this->notice("Using {$this->provider->name} with model: {$providerItem->model}");
+
         $this->response = SketchBuilderAgent::make()
             ->prompt(
                 prompt: 'Build a Sketch',

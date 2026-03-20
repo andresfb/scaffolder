@@ -13,7 +13,7 @@ final class ProviderFactory
     public static function getRandom(): ProviderItem
     {
         $providers = Config::collection('constants.providers');
-        $provider = $providers->random();
+        $provider = $providers->where('enabled', true)->random();
         $lab = Lab::from($provider['name']);
 
         return new ProviderItem(
