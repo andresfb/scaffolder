@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tasks;
 
 use App\Ai\Agents\PremiseSketchBuilderAgent;
 use App\Models\OutlineTemplate;
-use Laravel\Ai\Files;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Ai\Files\Document;
 use Laravel\Ai\Responses\AgentResponse;
 use Override;
 use Random\RandomException;
@@ -15,7 +17,7 @@ use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\textarea;
 
-class BuildPremiseSketchTask extends BaseSketchTask
+final class BuildPremiseSketchTask extends BaseSketchTask
 {
     private string $prompt = '';
 
@@ -43,11 +45,11 @@ class BuildPremiseSketchTask extends BaseSketchTask
     {
         $this->notice('Asking the AI');
 
-        return  PremiseSketchBuilderAgent::make()
+        return PremiseSketchBuilderAgent::make()
             ->prompt(
                 prompt: $this->prompt,
                 attachments: [
-                    Files\Document::fromPath($this->templateFile)
+                    Document::fromPath($this->templateFile),
                 ],
                 provider: $this->provider,
                 model: $this->model,

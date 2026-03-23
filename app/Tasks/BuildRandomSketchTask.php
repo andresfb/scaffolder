@@ -17,7 +17,7 @@ final class BuildRandomSketchTask extends BaseSketchTask
     {
         $this->notice('Asking the AI');
 
-        return  RandomSketchBuilderAgent::make()
+        return RandomSketchBuilderAgent::make()
             ->prompt(
                 prompt: 'Build a Sketch',
                 provider: $this->provider,

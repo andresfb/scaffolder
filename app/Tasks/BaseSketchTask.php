@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tasks;
 
+use App\Dtos\ProviderItem;
 use App\Factories\ProviderFactory;
 use App\Interfaces\TaskInterface;
 use App\Traits\AiNotifiable;
@@ -11,6 +14,9 @@ use Illuminate\Support\Facades\File;
 use Laravel\Ai\Enums\Lab;
 use Laravel\Ai\Responses\AgentResponse;
 use RuntimeException;
+
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\select;
 
 abstract class BaseSketchTask implements TaskInterface
 {
@@ -31,7 +37,7 @@ abstract class BaseSketchTask implements TaskInterface
 
     public function handle(): void
     {
-        $providerItem = ProviderFactory::getRandom();
+        $providerItem = $this->getAiProvider();
         $this->provider = $providerItem->lab;
         $this->model = $providerItem->model;
 
@@ -44,6 +50,20 @@ abstract class BaseSketchTask implements TaskInterface
         }
 
         $this->saveFiles();
+    }
+
+    public function getAiProvider(): ProviderItem
+    {
+        if (confirm('Random AI Provider?')) {
+            return ProviderFactory::getRandom();
+        }
+
+        $selection = select(
+            label: 'Select a Template',
+            options: ProviderFactory::getList(),
+        );
+
+        return ProviderFactory::getProvider($selection);
     }
 
     public function complete(): void

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ai\Agents;
 
 use Illuminate\Contracts\JsonSchema\JsonSchema;
@@ -9,7 +11,7 @@ use Laravel\Ai\Contracts\HasStructuredOutput;
 use Laravel\Ai\Contracts\HasTools;
 use Laravel\Ai\Promptable;
 
-class PremiseSketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
+final class PremiseSketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
 {
     use Promptable;
 

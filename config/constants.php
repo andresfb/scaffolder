@@ -10,27 +10,32 @@ return [
 
     'providers' => [
         [
-            'name' => 'anthropic',
+            'code' => 'anthropic',
+            'name' => 'Anthropic',
             'models' => explode(',', env('ANTHROPIC_MODELS')),
             'enabled' => (bool) env('ANTHROPIC_ENABLED'),
         ],
         [
-            'name' => 'gemini',
+            'code' => 'gemini',
+            'name' => 'Gemini',
             'models' => explode(',', env('GEMINI_MODELS')),
             'enabled' => (bool) env('GEMINI_ENABLED'),
         ],
         [
-            'name' => 'openai',
+            'code' => 'openai',
+            'name' => 'OpenAI',
             'models' => explode(',', env('OPENAI_MODELS')),
             'enabled' => (bool) env('OPENAI_ENABLED'),
         ],
         [
-            'name' => 'openrouter',
+            'code' => 'openrouter',
+            'name' => 'OpenRouter',
             'models' => explode(',', env('OPENROUTER_MODELS')),
             'enabled' => (bool) env('OPENROUTER_ENABLED'),
         ],
         [
-            'name' => 'ollama',
+            'code' => 'ollama',
+            'name' => 'Ollama',
             'models' => explode(',', env('OLLAMA_MODELS')),
             'enabled' => (bool) env('OLLAMA_ENABLED'),
         ],
