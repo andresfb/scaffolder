@@ -33,8 +33,6 @@ final class RandomPromptTool implements Tool
     }
 
     /**
-     * Execute the tool.
-     *
      * @throws Exception
      */
     public function handle(Request $request): string

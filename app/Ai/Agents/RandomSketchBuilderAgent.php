@@ -13,7 +13,7 @@ use Laravel\Ai\Contracts\HasTools;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Promptable;
 
-final class SketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
+final class RandomSketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
 {
     use Promptable;
 
@@ -22,7 +22,7 @@ final class SketchBuilderAgent implements Agent, HasStructuredOutput, HasTools
      */
     public function instructions(): string
     {
-        return Config::string('sketches.agent_instruction');
+        return Config::string('sketches.random_agent_instruction');
     }
 
     /**

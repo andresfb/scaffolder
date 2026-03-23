@@ -58,6 +58,17 @@ final class OutlineTemplate extends Model
         return $templates->last();
     }
 
+    public static function getList(): array
+    {
+        return self::query()
+            ->select(['id', 'title'])
+            ->where('user_id', auth()->id())
+            ->where('active', true)
+            ->orderByDesc('weight')
+            ->pluck('title', 'id')
+            ->toArray();
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
