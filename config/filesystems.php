@@ -40,6 +40,14 @@ return [
             'report' => false,
         ],
 
+        'templates' => [
+            'driver' => 'local',
+            'root' => storage_path('templates'),
+            'serve' => false,
+            'throw' => true,
+            'report' => true,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

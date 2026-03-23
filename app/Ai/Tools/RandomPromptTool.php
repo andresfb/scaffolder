@@ -63,10 +63,11 @@ final class RandomPromptTool implements Tool
             throw new RuntimeException('Prompt not found');
         }
 
+        $template = OutlineTemplate::getRandom();
+        $this->notice("Using Outline Template: {$template->title}");
+
         $prompt = $prompt->parsePrompt()
-            ->withTemplate(
-                OutlineTemplate::getRandom()
-            );
+            ->withTemplate($template->text);
 
         $this->notice('Prompt is ready for the AI');
 
